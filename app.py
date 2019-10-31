@@ -15,14 +15,7 @@ collection = db.mars
 @app.route('/')
 def index():
     # Store the entire team collection in a list
-    # mars = list(collection.find({}))[-1]
     mars = collection.find_one()
-    print(mars)
-    print(client.list_database_names())
-    print(db.list_collection_names)
-    print(db.list_collection_names())
-    print(list(collection.find()))
-    print(collection.news_title)
 
     # Return the template with the teams list passed in
     return render_template('index.html', mars=mars)
@@ -39,4 +32,4 @@ def scrape():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
